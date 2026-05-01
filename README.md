@@ -13,9 +13,10 @@ Small, self-contained security labs you can run locally with the Docker CLI (wor
   - A tiny Flask app with a classic SQL injection login flaw, plus a fixed version using parameterized queries.
 
 ## Prerequisites
-Docker CLI available (Docker is used as a Podman-compatible alias in this project): docker
-Basic understanding of container usage (build, run, exec)
-Linux terminal familiarity recommended
+
+- Docker CLI available (Docker is used as a Podman-compatible alias in this project): `docker`
+- Basic understanding of container usage (build, run, exec)
+- Linux terminal familiarity recommended
 
 ## Safety / Scope
 
