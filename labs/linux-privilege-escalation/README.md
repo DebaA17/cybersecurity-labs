@@ -41,11 +41,13 @@ Images are published to GHCR by the workflow in this repo. `docker run` will pul
 # Vulnerable
 docker run --rm -it \
   --name privesc-sudo-vuln \
+  --hostname privesc-sudo \
   ghcr.io/debaa17/cybersecurity-labs/privesc-sudo:vuln
 
 # Fixed
 docker run --rm -it \
   --name privesc-sudo-fixed \
+  --hostname privesc-sudo \
   ghcr.io/debaa17/cybersecurity-labs/privesc-sudo:fixed
 ```
 
