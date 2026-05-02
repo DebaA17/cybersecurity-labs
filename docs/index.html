@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cybersecurity Labs (Docker / Podman)</title>
+    <meta
+      name="description"
+      content="Small, self-contained security labs you can run locally with the Docker CLI (Podman-compatible). Each lab includes a vulnerable build, a fixed build, and a short walkthrough."
+    />
+
+    <style>
+      :root {
+        color-scheme: light dark;
+      }
+
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell,
+          Noto Sans, sans-serif;
+        line-height: 1.5;
+      }
+
+      .container {
+        max-width: 920px;
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+
+      header {
+        margin-bottom: 28px;
+      }
+
+      h1 {
+        font-size: clamp(1.8rem, 3vw, 2.4rem);
+        margin: 0 0 10px;
+      }
+
+      h2 {
+        margin: 26px 0 10px;
+      }
+
+      p {
+        margin: 0 0 14px;
+        opacity: 0.9;
+      }
+
+      .card {
+        border: 1px solid rgba(127, 127, 127, 0.35);
+        border-radius: 14px;
+        padding: 18px;
+        margin: 14px 0;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      @media (min-width: 820px) {
+        .grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .muted {
+        opacity: 0.8;
+      }
+
+      .links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 14px;
+        margin-top: 12px;
+      }
+
+      .links a {
+        text-decoration: none;
+        border: 1px solid rgba(127, 127, 127, 0.35);
+        padding: 8px 10px;
+        border-radius: 10px;
+      }
+
+      .links a:hover {
+        text-decoration: underline;
+      }
+
+      footer {
+        margin-top: 34px;
+        padding-top: 14px;
+        border-top: 1px solid rgba(127, 127, 127, 0.35);
+      }
+
+      code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+          "Liberation Mono", "Courier New", monospace;
+        font-size: 0.95em;
+      }
+
+      ul {
+        margin: 10px 0 0;
+        padding-left: 18px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="container">
+      <header>
+        <h1>Cybersecurity Labs (Docker / Podman)</h1>
+        <p>
+          Small, self-contained security labs you can run locally with the Docker
+          CLI (Podman-compatible). Each lab includes a vulnerable build, a fixed
+          build, and a short walkthrough.
+        </p>
+        <div class="links">
+          <a href="https://github.com/DebaA17/cybersecurity-labs">GitHub repo</a>
+          <a href="https://github.com/DebaA17/cybersecurity-labs/tree/main/labs">All labs</a>
+          <a href="https://github.com/DebaA17/cybersecurity-labs/blob/main/LICENSE">License</a>
+        </div>
+      </header>
+
+      <section class="card">
+        <strong>Prerequisites</strong>
+        <ul>
+          <li>Docker CLI: <code>docker</code> (Podman-compatible)</li>
+          <li>Basic container usage: build / run / exec</li>
+          <li>Linux terminal familiarity recommended</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Labs</h2>
+        <div class="grid">
+          <!-- LABS:START -->
+          <article class="card">
+            <h3>Linux Privilege Escalation Lab (sudo misconfiguration)</h3>
+            <p class="muted">A minimal, realistic container lab where you start as a low-privilege user (student) and escalate to root due to a dangerous sudoers rule.</p>
+            <div class="links">
+              <a href="https://github.com/DebaA17/cybersecurity-labs/tree/main/labs/linux-privilege-escalation">Open lab</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Web Exploitation Lab (SQL Injection) — Flask + SQLite</h3>
+            <p class="muted">A minimal Flask app with a deliberately vulnerable login that is susceptible to SQL injection.</p>
+            <div class="links">
+              <a href="https://github.com/DebaA17/cybersecurity-labs/tree/main/labs/web-exploitation-sqli">Open lab</a>
+            </div>
+          </article>
+          <!-- LABS:END -->
+        </div>
+      </section>
+
+      <footer>
+        <p class="muted">
+          Safety: these labs are intentionally vulnerable. Run locally on a
+          non-production machine.
+        </p>
+        <p class="muted">
+          Contact: <a href="https://github.com/DebaA17">GitHub</a> •
+          <a href="https://www.linkedin.com/in/debasis-biswas/">LinkedIn</a>
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>
