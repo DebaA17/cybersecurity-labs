@@ -21,6 +21,8 @@
   - Start as a low-priv user in a container, enumerate, and escalate to `root`.
 - 🌐 [Web Exploitation (SQL Injection)](labs/web-exploitation-sqli/)
   - Exploit a vulnerable Flask + SQLite login, then verify the fixed build.
+- 📤 [Web Exploitation (File Upload)](labs/web-exploitation-file-upload/)
+  - Compare weak upload handling vs a strict allowlist + safe storage.
 
 All labs: [labs/](labs/)
 
