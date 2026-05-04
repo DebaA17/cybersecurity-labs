@@ -23,6 +23,8 @@
   - Exploit a vulnerable Flask + SQLite login, then verify the fixed build.
 - 📤 [Web Exploitation (File Upload)](labs/web-exploitation-file-upload/)
   - Compare weak upload handling vs a strict allowlist + safe storage.
+- 🧾 [Web Exploitation (IDOR)](labs/web-exploitation-idor/)
+  - Exploit missing authorization on `/profile/<id>`, then verify the fix.
 
 All labs: [labs/](labs/)
 
