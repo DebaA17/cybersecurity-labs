@@ -103,3 +103,20 @@ jobs:
           file: labs/web-exploitation-idor/fixed/Dockerfile
           push: true
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAMESPACE_LC }}/flask-idor:fixed
+
+      # Web Exploitation Lab (PHP Attack Chain)
+      - name: Build & push php-attack-chain (vuln)
+        uses: docker/build-push-action@v6
+        with:
+          context: labs/web-exploitation-php-attack-chain/vulnerable
+          file: labs/web-exploitation-php-attack-chain/vulnerable/Dockerfile
+          push: true
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAMESPACE_LC }}/php-attack-chain:vuln
+
+      - name: Build & push php-attack-chain (fixed)
+        uses: docker/build-push-action@v6
+        with:
+          context: labs/web-exploitation-php-attack-chain/fixed
+          file: labs/web-exploitation-php-attack-chain/fixed/Dockerfile
+          push: true
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAMESPACE_LC }}/php-attack-chain:fixed

@@ -25,6 +25,8 @@
   - Compare weak upload handling vs a strict allowlist + safe storage.
 - 🧾 [Web Exploitation (IDOR)](labs/web-exploitation-idor/)
   - Exploit missing authorization on `/profile/<id>`, then verify the fix.
+- 🧩 [Web Exploitation (PHP Attack Chain)](labs/web-exploitation-php-attack-chain/)
+  - See how unsafe upload handling and command execution become compromise.
 
 All labs: [labs/](labs/)
 
