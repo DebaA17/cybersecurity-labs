@@ -5,3 +5,4 @@
 - [Web Exploitation (File Upload)](web-exploitation-file-upload/)
 - [Web Exploitation (IDOR)](web-exploitation-idor/)
 - [Web Exploitation (PHP Attack Chain)](web-exploitation-php-attack-chain/)
+- [Web Exploitation (SSRF)](web-exploitation-ssrf/)

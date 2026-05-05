@@ -27,6 +27,8 @@
   - Exploit missing authorization on `/profile/<id>`, then verify the fix.
 - 🧩 [Web Exploitation (PHP Attack Chain)](labs/web-exploitation-php-attack-chain/)
   - See how unsafe upload handling and command execution become compromise.
+- 🕸️ [Web Exploitation (SSRF)](labs/web-exploitation-ssrf/)
+  - Learn why URL-fetch features need strict outbound controls.
 
 All labs: [labs/](labs/)
 

@@ -120,3 +120,36 @@ jobs:
           file: labs/web-exploitation-php-attack-chain/fixed/Dockerfile
           push: true
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAMESPACE_LC }}/php-attack-chain:fixed
+
+      # Web Exploitation Lab (SSRF)
+      - name: Build & push ssrf-app (vuln)
+        uses: docker/build-push-action@v6
+        with:
+          context: labs/web-exploitation-ssrf/vulnerable
+          file: labs/web-exploitation-ssrf/vulnerable/Dockerfile
+          push: true
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAMESPACE_LC }}/ssrf-app:vuln
+
+      - name: Build & push ssrf-app (fixed)
+        uses: docker/build-push-action@v6
+        with:
+          context: labs/web-exploitation-ssrf/fixed
+          file: labs/web-exploitation-ssrf/fixed/Dockerfile
+          push: true
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAMESPACE_LC }}/ssrf-app:fixed
+
+      - name: Build & push ssrf-internal-sim (latest)
+        uses: docker/build-push-action@v6
+        with:
+          context: labs/web-exploitation-ssrf/docker/internal-sim
+          file: labs/web-exploitation-ssrf/docker/internal-sim/Dockerfile
+          push: true
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAMESPACE_LC }}/ssrf-internal-sim:latest
+
+      - name: Build & push ssrf-public-sim (latest)
+        uses: docker/build-push-action@v6
+        with:
+          context: labs/web-exploitation-ssrf/docker/public-sim
+          file: labs/web-exploitation-ssrf/docker/public-sim/Dockerfile
+          push: true
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAMESPACE_LC }}/ssrf-public-sim:latest
