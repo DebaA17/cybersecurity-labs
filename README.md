@@ -43,6 +43,17 @@ These labs are intentionally vulnerable.
 - Run locally on a non-production machine.
 - **Container root is not host root**, but it’s still a real security boundary lesson.
 
+## ⚠️ Responsible Use
+
+This repository may contain **intentionally vulnerable applications and exploit simulations** demonstrating cybersecurity and DevSecOps concepts.
+
+* Run labs **locally (Docker/VMs)** in controlled environments
+* Test **only on systems you own or are authorized to assess**
+
+This project reflects **practical security research and proof-of-work**, and aligns with GitHub policies on dual-use security content. It must not be used for unauthorized access or real-world attacks.
+
+The author is not responsible for misuse.
+
 ## Quick start
 
 Each lab directory contains its own README with:
