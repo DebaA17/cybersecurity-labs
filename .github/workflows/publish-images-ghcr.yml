@@ -153,3 +153,20 @@ jobs:
           file: labs/web-exploitation-ssrf/docker/public-sim/Dockerfile
           push: true
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAMESPACE_LC }}/ssrf-public-sim:latest
+
+      # Web Exploitation Lab (JWT Auth Pitfalls)
+      - name: Build & push jwt-auth-pitfalls (vuln)
+        uses: docker/build-push-action@v6
+        with:
+          context: labs/web-exploitation-jwt-auth-pitfalls/vulnerable
+          file: labs/web-exploitation-jwt-auth-pitfalls/vulnerable/Dockerfile
+          push: true
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAMESPACE_LC }}/jwt-auth-pitfalls:vuln
+
+      - name: Build & push jwt-auth-pitfalls (fixed)
+        uses: docker/build-push-action@v6
+        with:
+          context: labs/web-exploitation-jwt-auth-pitfalls/fixed
+          file: labs/web-exploitation-jwt-auth-pitfalls/fixed/Dockerfile
+          push: true
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAMESPACE_LC }}/jwt-auth-pitfalls:fixed

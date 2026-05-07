@@ -6,3 +6,4 @@
 - [Web Exploitation (IDOR)](web-exploitation-idor/)
 - [Web Exploitation (PHP Attack Chain)](web-exploitation-php-attack-chain/)
 - [Web Exploitation (SSRF)](web-exploitation-ssrf/)
+- [Web Exploitation (JWT Auth Pitfalls)](web-exploitation-jwt-auth-pitfalls/)

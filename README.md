@@ -29,6 +29,8 @@
   - See how unsafe upload handling and command execution become compromise.
 - 🕸️ [Web Exploitation (SSRF)](labs/web-exploitation-ssrf/)
   - Learn why URL-fetch features need strict outbound controls.
+- 🔐 [Web Exploitation (JWT Auth Pitfalls)](labs/web-exploitation-jwt-auth-pitfalls/)
+  - See how JWT verification mistakes become authorization bypass.
 
 All labs: [labs/](labs/)
 
