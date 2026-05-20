@@ -29,6 +29,8 @@
   - Submit a ticket payload that executes in the admin dashboard, then verify the defense-in-depth fix.
 - 🧩 [Web Exploitation (PHP Attack Chain)](labs/web-exploitation-php-attack-chain/)
   - See how unsafe upload handling and command execution become compromise.
+- 🧪 [Web Exploitation (SSTI)](labs/web-exploitation-ssti/)
+  - Exploit a Jinja2 template injection and verify the fixed build.
 - 🕸️ [Web Exploitation (SSRF)](labs/web-exploitation-ssrf/)
   - Learn why URL-fetch features need strict outbound controls.
 - 🔐 [Web Exploitation (JWT Auth Pitfalls)](labs/web-exploitation-jwt-auth-pitfalls/)

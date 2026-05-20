@@ -6,5 +6,6 @@
 - [Web Exploitation (IDOR)](web-exploitation-idor/)
 - [Web Exploitation (Stored XSS — Support Tickets)](web-exploitation-stored-xss-support-tickets/)
 - [Web Exploitation (PHP Attack Chain)](web-exploitation-php-attack-chain/)
+- [Web Exploitation (SSTI)](web-exploitation-ssti/)
 - [Web Exploitation (SSRF)](web-exploitation-ssrf/)
 - [Web Exploitation (JWT Auth Pitfalls)](web-exploitation-jwt-auth-pitfalls/)

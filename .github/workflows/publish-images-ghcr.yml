@@ -138,6 +138,23 @@ jobs:
           push: true
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAMESPACE_LC }}/php-attack-chain:fixed
 
+      # Web Exploitation Lab (SSTI)
+      - name: Build & push flask-ssti (vuln)
+        uses: docker/build-push-action@v6
+        with:
+          context: labs/web-exploitation-ssti/vulnerable
+          file: labs/web-exploitation-ssti/vulnerable/Dockerfile
+          push: true
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAMESPACE_LC }}/flask-ssti:vuln
+
+      - name: Build & push flask-ssti (fixed)
+        uses: docker/build-push-action@v6
+        with:
+          context: labs/web-exploitation-ssti/fixed
+          file: labs/web-exploitation-ssti/fixed/Dockerfile
+          push: true
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAMESPACE_LC }}/flask-ssti:fixed
+
       # Web Exploitation Lab (SSRF)
       - name: Build & push ssrf-app (vuln)
         uses: docker/build-push-action@v6
