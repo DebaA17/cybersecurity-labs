@@ -35,6 +35,9 @@
   - Learn why URL-fetch features need strict outbound controls.
 - 🔐 [Web Exploitation (JWT Auth Pitfalls)](labs/web-exploitation-jwt-auth-pitfalls/)
   - See how JWT verification mistakes become authorization bypass.
+- 🧪 [Web Exploitation (Web Cache Poisoning)](labs/web-exploitation-cache-poisoning/)
+  - Exploit unkeyed headers to poison Nginx cache and hijack visitor browsers.
+
 
 All labs: [labs/](labs/)
 

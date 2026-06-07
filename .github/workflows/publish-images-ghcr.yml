@@ -21,6 +21,32 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Check path changes
+        id: filter
+        uses: dorny/paths-filter@v3
+        with:
+          filters: |
+            privesc:
+              - 'labs/linux-privilege-escalation/**'
+            sqli:
+              - 'labs/web-exploitation-sqli/**'
+            upload:
+              - 'labs/web-exploitation-file-upload/**'
+            idor:
+              - 'labs/web-exploitation-idor/**'
+            xss:
+              - 'labs/web-exploitation-stored-xss-support-tickets/**'
+            php:
+              - 'labs/web-exploitation-php-attack-chain/**'
+            ssti:
+              - 'labs/web-exploitation-ssti/**'
+            ssrf:
+              - 'labs/web-exploitation-ssrf/**'
+            jwt:
+              - 'labs/web-exploitation-jwt-auth-pitfalls/**'
+            cache:
+              - 'labs/web-exploitation-cache-poisoning/**'
+
       - name: Set image namespace (lowercase)
         shell: bash
         run: |
@@ -38,6 +64,7 @@ jobs:
 
       # Linux Privilege Escalation Lab (sudo misconfiguration)
       - name: Build & push privesc-sudo (vuln)
+        if: github.event_name == 'workflow_dispatch' || steps.filter.outputs.privesc == 'true'
         uses: docker/build-push-action@v6
         with:
           context: labs/linux-privilege-escalation/vulnerable
@@ -46,6 +73,7 @@ jobs:
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAMESPACE_LC }}/privesc-sudo:vuln
 
       - name: Build & push privesc-sudo (fixed)
+        if: github.event_name == 'workflow_dispatch' || steps.filter.outputs.privesc == 'true'
         uses: docker/build-push-action@v6
         with:
           context: labs/linux-privilege-escalation/fixed
@@ -55,6 +83,7 @@ jobs:
 
       # Web Exploitation Lab (SQL Injection)
       - name: Build & push flask-sqli (vuln)
+        if: github.event_name == 'workflow_dispatch' || steps.filter.outputs.sqli == 'true'
         uses: docker/build-push-action@v6
         with:
           context: labs/web-exploitation-sqli/vulnerable
@@ -63,6 +92,7 @@ jobs:
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAMESPACE_LC }}/flask-sqli:vuln
 
       - name: Build & push flask-sqli (fixed)
+        if: github.event_name == 'workflow_dispatch' || steps.filter.outputs.sqli == 'true'
         uses: docker/build-push-action@v6
         with:
           context: labs/web-exploitation-sqli/fixed
@@ -72,6 +102,7 @@ jobs:
 
       # Web Exploitation Lab (File Upload)
       - name: Build & push flask-upload (vuln)
+        if: github.event_name == 'workflow_dispatch' || steps.filter.outputs.upload == 'true'
         uses: docker/build-push-action@v6
         with:
           context: labs/web-exploitation-file-upload/vulnerable
@@ -80,6 +111,7 @@ jobs:
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAMESPACE_LC }}/flask-upload:vuln
 
       - name: Build & push flask-upload (fixed)
+        if: github.event_name == 'workflow_dispatch' || steps.filter.outputs.upload == 'true'
         uses: docker/build-push-action@v6
         with:
           context: labs/web-exploitation-file-upload/fixed
@@ -89,6 +121,7 @@ jobs:
 
       # Web Exploitation Lab (IDOR)
       - name: Build & push flask-idor (vuln)
+        if: github.event_name == 'workflow_dispatch' || steps.filter.outputs.idor == 'true'
         uses: docker/build-push-action@v6
         with:
           context: labs/web-exploitation-idor/vulnerable
@@ -97,6 +130,7 @@ jobs:
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAMESPACE_LC }}/flask-idor:vuln
 
       - name: Build & push flask-idor (fixed)
+        if: github.event_name == 'workflow_dispatch' || steps.filter.outputs.idor == 'true'
         uses: docker/build-push-action@v6
         with:
           context: labs/web-exploitation-idor/fixed
@@ -106,6 +140,7 @@ jobs:
 
       # Web Exploitation Lab (Stored XSS — Support Tickets)
       - name: Build & push flask-stored-xss (vuln)
+        if: github.event_name == 'workflow_dispatch' || steps.filter.outputs.xss == 'true'
         uses: docker/build-push-action@v6
         with:
           context: labs/web-exploitation-stored-xss-support-tickets/vulnerable
@@ -114,6 +149,7 @@ jobs:
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAMESPACE_LC }}/flask-stored-xss:vuln
 
       - name: Build & push flask-stored-xss (fixed)
+        if: github.event_name == 'workflow_dispatch' || steps.filter.outputs.xss == 'true'
         uses: docker/build-push-action@v6
         with:
           context: labs/web-exploitation-stored-xss-support-tickets/fixed
@@ -123,6 +159,7 @@ jobs:
 
       # Web Exploitation Lab (PHP Attack Chain)
       - name: Build & push php-attack-chain (vuln)
+        if: github.event_name == 'workflow_dispatch' || steps.filter.outputs.php == 'true'
         uses: docker/build-push-action@v6
         with:
           context: labs/web-exploitation-php-attack-chain/vulnerable
@@ -131,6 +168,7 @@ jobs:
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAMESPACE_LC }}/php-attack-chain:vuln
 
       - name: Build & push php-attack-chain (fixed)
+        if: github.event_name == 'workflow_dispatch' || steps.filter.outputs.php == 'true'
         uses: docker/build-push-action@v6
         with:
           context: labs/web-exploitation-php-attack-chain/fixed
@@ -140,6 +178,7 @@ jobs:
 
       # Web Exploitation Lab (SSTI)
       - name: Build & push flask-ssti (vuln)
+        if: github.event_name == 'workflow_dispatch' || steps.filter.outputs.ssti == 'true'
         uses: docker/build-push-action@v6
         with:
           context: labs/web-exploitation-ssti/vulnerable
@@ -148,6 +187,7 @@ jobs:
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAMESPACE_LC }}/flask-ssti:vuln
 
       - name: Build & push flask-ssti (fixed)
+        if: github.event_name == 'workflow_dispatch' || steps.filter.outputs.ssti == 'true'
         uses: docker/build-push-action@v6
         with:
           context: labs/web-exploitation-ssti/fixed
@@ -157,6 +197,7 @@ jobs:
 
       # Web Exploitation Lab (SSRF)
       - name: Build & push ssrf-app (vuln)
+        if: github.event_name == 'workflow_dispatch' || steps.filter.outputs.ssrf == 'true'
         uses: docker/build-push-action@v6
         with:
           context: labs/web-exploitation-ssrf/vulnerable
@@ -165,6 +206,7 @@ jobs:
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAMESPACE_LC }}/ssrf-app:vuln
 
       - name: Build & push ssrf-app (fixed)
+        if: github.event_name == 'workflow_dispatch' || steps.filter.outputs.ssrf == 'true'
         uses: docker/build-push-action@v6
         with:
           context: labs/web-exploitation-ssrf/fixed
@@ -173,6 +215,7 @@ jobs:
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAMESPACE_LC }}/ssrf-app:fixed
 
       - name: Build & push ssrf-internal-sim (latest)
+        if: github.event_name == 'workflow_dispatch' || steps.filter.outputs.ssrf == 'true'
         uses: docker/build-push-action@v6
         with:
           context: labs/web-exploitation-ssrf/docker/internal-sim
@@ -181,6 +224,7 @@ jobs:
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAMESPACE_LC }}/ssrf-internal-sim:latest
 
       - name: Build & push ssrf-public-sim (latest)
+        if: github.event_name == 'workflow_dispatch' || steps.filter.outputs.ssrf == 'true'
         uses: docker/build-push-action@v6
         with:
           context: labs/web-exploitation-ssrf/docker/public-sim
@@ -190,6 +234,7 @@ jobs:
 
       # Web Exploitation Lab (JWT Auth Pitfalls)
       - name: Build & push jwt-auth-pitfalls (vuln)
+        if: github.event_name == 'workflow_dispatch' || steps.filter.outputs.jwt == 'true'
         uses: docker/build-push-action@v6
         with:
           context: labs/web-exploitation-jwt-auth-pitfalls/vulnerable
@@ -198,9 +243,29 @@ jobs:
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAMESPACE_LC }}/jwt-auth-pitfalls:vuln
 
       - name: Build & push jwt-auth-pitfalls (fixed)
+        if: github.event_name == 'workflow_dispatch' || steps.filter.outputs.jwt == 'true'
         uses: docker/build-push-action@v6
         with:
           context: labs/web-exploitation-jwt-auth-pitfalls/fixed
           file: labs/web-exploitation-jwt-auth-pitfalls/fixed/Dockerfile
           push: true
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAMESPACE_LC }}/jwt-auth-pitfalls:fixed
+
+      # Web Exploitation Lab (Web Cache Poisoning)
+      - name: Build & push flask-cache-poisoning (vuln)
+        if: github.event_name == 'workflow_dispatch' || steps.filter.outputs.cache == 'true'
+        uses: docker/build-push-action@v6
+        with:
+          context: labs/web-exploitation-cache-poisoning/vulnerable
+          file: labs/web-exploitation-cache-poisoning/vulnerable/Dockerfile
+          push: true
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAMESPACE_LC }}/flask-cache-poisoning:vuln
+
+      - name: Build & push flask-cache-poisoning (fixed)
+        if: github.event_name == 'workflow_dispatch' || steps.filter.outputs.cache == 'true'
+        uses: docker/build-push-action@v6
+        with:
+          context: labs/web-exploitation-cache-poisoning/fixed
+          file: labs/web-exploitation-cache-poisoning/fixed/Dockerfile
+          push: true
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAMESPACE_LC }}/flask-cache-poisoning:fixed

@@ -9,3 +9,5 @@
 - [Web Exploitation (SSTI)](web-exploitation-ssti/)
 - [Web Exploitation (SSRF)](web-exploitation-ssrf/)
 - [Web Exploitation (JWT Auth Pitfalls)](web-exploitation-jwt-auth-pitfalls/)
+- [Web Exploitation (Web Cache Poisoning)](web-exploitation-cache-poisoning/)
+
