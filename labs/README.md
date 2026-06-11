@@ -10,4 +10,4 @@
 - [Web Exploitation (SSRF)](web-exploitation-ssrf/)
 - [Web Exploitation (JWT Auth Pitfalls)](web-exploitation-jwt-auth-pitfalls/)
 - [Web Exploitation (Web Cache Poisoning)](web-exploitation-cache-poisoning/)
-
+- [Web Exploitation (API Mass Assignment & Excessive Data Exposure)](web-exploitation-api-mass-assignment/)

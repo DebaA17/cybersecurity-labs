@@ -37,9 +37,11 @@
   - See how JWT verification mistakes become authorization bypass.
 - 🧪 [Web Exploitation (Web Cache Poisoning)](labs/web-exploitation-cache-poisoning/)
   - Exploit unkeyed headers to poison Nginx cache and hijack visitor browsers.
-
+- 🛡️ [Web Exploitation (API Mass Assignment & Excessive Data Exposure)](labs/web-exploitation-api-mass-assignment/)
+  - Exploit unmapped JSON properties to escalate privilege to admin and verify serialization filters.
 
 All labs: [labs/](labs/)
+
 
 ## Prerequisites
 

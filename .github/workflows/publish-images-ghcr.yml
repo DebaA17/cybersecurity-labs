@@ -46,6 +46,9 @@ jobs:
               - 'labs/web-exploitation-jwt-auth-pitfalls/**'
             cache:
               - 'labs/web-exploitation-cache-poisoning/**'
+            api-mass-assignment:
+              - 'labs/web-exploitation-api-mass-assignment/**'
+
 
       - name: Set image namespace (lowercase)
         shell: bash
@@ -269,3 +272,24 @@ jobs:
           file: labs/web-exploitation-cache-poisoning/fixed/Dockerfile
           push: true
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAMESPACE_LC }}/flask-cache-poisoning:fixed
+
+      # Web Exploitation Lab (API Mass Assignment & Excessive Data Exposure)
+      - name: Build & push node-api-mass-assignment (vuln)
+        if: github.event_name == 'workflow_dispatch' || steps.filter.outputs.api-mass-assignment == 'true'
+        uses: docker/build-push-action@v6
+        with:
+          context: labs/web-exploitation-api-mass-assignment/vulnerable
+          file: labs/web-exploitation-api-mass-assignment/vulnerable/Dockerfile
+          push: true
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAMESPACE_LC }}/node-api-mass-assignment:vuln
+
+      - name: Build & push node-api-mass-assignment (fixed)
+        if: github.event_name == 'workflow_dispatch' || steps.filter.outputs.api-mass-assignment == 'true'
+        uses: docker/build-push-action@v6
+        with:
+          context: labs/web-exploitation-api-mass-assignment/fixed
+          file: labs/web-exploitation-api-mass-assignment/fixed/Dockerfile
+          push: true
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAMESPACE_LC }}/node-api-mass-assignment:fixed
+
+
